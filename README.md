@@ -1,5 +1,6 @@
 
-COZYSHELL
+#COZYSHELL
+
   **Developed for the 'year of the dog' THM box, use it with caution and responsability**
 
 - First we need to upload a webshell like the one bellow.
